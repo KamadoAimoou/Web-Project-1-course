@@ -1,0 +1,73 @@
+.manga-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.manga-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.manga-card:hover {
+    transform: scale(1.01);
+}
+
+.manga-image {
+    width: 100%;        
+    height: 300px;       
+    object-fit: cover;   
+    border-radius: 8px;
+}
+
+.manga-info {
+    padding: 15px;
+}
+
+.manga-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e01414;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.img-main {
+    width: 100%;
+    height: 100%;
+}
+
+.img-container {
+    width: 100vw;
+    height: 600px;
+}
+.button-manga {
+    font-weight: bold;
+    background-color: white; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    right: -2%;
+    padding: 10px 20px; 
+    font-size: 11px;
+    color: #333; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+}
+
+
+.button-manga:hover {
+    background-color: #f1f1f1; 
+    border-color: #aaa;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.button-manga:active {
+    transform: translateY(1px); 
+    box-shadow: none;
+}
+
