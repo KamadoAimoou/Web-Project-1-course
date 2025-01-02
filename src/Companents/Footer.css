@@ -1,21 +1,3 @@
-/* 
-.footer-main {
-    height: 250px; 
-    background-color: rgb(172, 0, 0);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    position: static;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    margin-top: 20px;
-
-    
-} */
-
 
 .footer-main {
     height: 250px;
@@ -27,6 +9,7 @@
     padding: 10px;
     position: relative; /* Устанавливаем как обычный блок */
     bottom: 0; /* Убедимся, что футер остаётся внизу */
+    top:auto;
     left: 0;
     width: 100%;
     margin-top: auto; /* Автоматический отступ сверху, чтобы прижать к низу */
