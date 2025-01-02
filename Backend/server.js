@@ -1,29 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/User'); 
-const cors = require('cors'); // Добавляем библиотеку
+const cors = require('cors'); 
 const app = express();
 
 app.use(express.json());
 
 
-// Настраиваем CORS
+// CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Разрешаем доступ с фронтенда
-  methods: ['GET', 'POST'], // Разрешённые методы
-  allowedHeaders: ['Content-Type'], // Разрешённые заголовки
+  origin: 'http://localhost:3000', // доступ с фронтенда
+  methods: ['GET', 'POST'], 
+  allowedHeaders: ['Content-Type'], 
 }));
 
-app.get('/api/test', async (req, res) => {
-  try {
-      const users = await User.find();
-      res.json({ message: 'Connection successful!', users });
-  } catch (error) {
-      res.status(500).json({ error: 'Connection to database failed!' });
-  }
-});
+
 app.post('/api/auth/register', async (req, res) => {
-  console.log('Request body:', req.body); // Показывает данные, отправленные клиентом
+  console.log('Request body:', req.body);
 
   const { username, password } = req.body;
   if (!username || !password) {
@@ -61,25 +54,36 @@ mongoose.connect('mongodb://127.0.0.1:27017/myapp')
     const { username, password } = req.body;
   
     try {
-      // Проверяем, существует ли пользователь с таким именем
+      
       const user = await User.findOne({ username });
       if (!user) {
         return res.status(404).json({ error: 'Пользователь не найден' });
       }
   
-      // Проверяем правильность пароля
+   
       if (user.password !== password) {
         return res.status(400).json({ error: 'Неверный пароль' });
       }
   
-      // Успешный вход
+      
       res.json({ message: 'Вход успешен', token: 'fake-jwt-token' });
     } catch (error) {
       res.status(500).json({ error: 'Ошибка на сервере' });
     }
   });
   
-
-// Запуск сервера
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
+ 
+
+
+
+
+// app.get('/api/test', async (req, res) => {
+//   try {
+//       const users = await User.find();
+//       res.json({ message: 'Connection successful!', users });
+//   } catch (error) {
+//       res.status(500).json({ error: 'Connection to database failed!' });
+//   }
+// });
